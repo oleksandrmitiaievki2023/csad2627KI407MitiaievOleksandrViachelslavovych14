@@ -153,3 +153,79 @@ Frontmatter: description, agent: build-engineer.
 6. Таблиця відповідності файлів ролям: agent -> .github/agents/, skills -> .github/skills/, commands -> .github/prompts/.
 7. Примітка, що використано формат VS Code Copilot (custom agents, prompt files, agent skills).
    ```
+
+14. ```text
+Створи (або, якщо файл уже є, повністю перегенеруй) docs/ai-log.md: нумерований список усіх запитів, які я надсилав тобі в цьому чаті, від першого повідомлення до останнього, по порядку.
+Кожен запит перепиши дослівно, як я його надсилав, нічого не скорочуй і не виправляй. Відповіді в файл не записуй. Без заголовків, вступу, висновку і пояснень, тільки список: 1., 2., 3. і так далі.
+Включи всі мої повідомлення, зокрема повторні запити та запити на виправлення помилок. Поточний запит (про створення цього журналу) не включай. Якщо в якомусь запиті є паролі, токени чи ключі, заміни їх на [приховано] і скажи мені про це.
+   ```
+
+15. ```text
+Follow instructions in #prompt:init.prompt.md
+   ```
+
+16. ```text
+Follow instructions in #prompt:init.prompt.md with these arguments: дав таку помилку: [вставте вивід]. Проаналізуй причину і виправ ІНСТРУКЦІЇ в .github/skills/[...] або .github/prompts/[...], щоб агент генерував правильно. Не правь згенеровані файли напряму.
+   ```
+
+17. ```text
+Follow instructions in #prompt:check.prompt.md
+   ```
+
+18. ```text
+Follow instructions in #prompt:init.prompt.md with these arguments: дав таку помилку: Початковий і кінцевий `git status` збігаються. Створено лише дозволений `.venv`; файли проєкту не змінювалися. **Статус: FAILED** — не пройшли пункти 3, 4, 5, 6 і 7.. Проаналізуй причину і виправ ІНСТРУКЦІЇ в .github/skills/[...] або .github/prompts/[...], щоб агент генерував правильно. Не правь згенеровані файли напряму.
+   ```
+
+19. ```text
+Follow instructions in #prompt:check.prompt.md
+   ```
+
+20. ```text
+./ci.sh
+   ```
+
+21. ```text
+***git status***
+   ```
+
+22. ```text
+git add .gitignore
+   ```
+
+23. ```text
+git commit -m "chore: add gitignore"
+   ```
+
+24. ```text
+Створи docs/usage.md: точні команди запуску агента (VS Code, Copilot Chat, агент build-engineer, /init, /check), локальної збірки і перевірки (./ci.sh на Linux/macOS, ci.bat на Windows), запуску hello (python3 dist/hello.py або python dist\hello.py; також ./run.sh або run.bat), запуску тестів (.venv/bin/python -m pytest -v на Linux/macOS, .venv\Scripts\python -m pytest -v на Windows).
+   ```
+
+25. ```text
+# Виконуйте по черзі в корені репозиторію. Якщо git status показує інші файли проєкту, створені Copilot, додайте і їх.
+# Тимчасові каталоги збірки (див. .gitignore) не додавайте.
+git add src tests requirements.txt pytest.ini run.sh run.bat
+git update-index --chmod=+x run.sh
+git commit -m "feat: hello world with pytest"
+   ```
+
+26. ```text
+git add ci.sh ci.bat .github/workflows
+   ```
+
+27. ```text
+git update-index --chmod=+x ci.sh
+   ```
+
+28. ```text
+git commit -m "ci: matrix win/linux/mac"
+   ```
+
+29. ```text
+git ls-files -s ci.sh
+   ```
+
+30. ```text
+Створи (або, якщо файл уже є, повністю перегенеруй) docs/ai-log.md: нумерований список усіх запитів, які я надсилав тобі в цьому чаті, від першого повідомлення до останнього, по порядку.
+Кожен запит перепиши дослівно, як я його надсилав, нічого не скорочуй і не виправляй. Відповіді в файл не записуй. Без заголовків, вступу, висновку і пояснень, тільки список: 1., 2., 3. і так далі.
+Включи всі мої повідомлення, зокрема повторні запити та запити на виправлення помилок. Поточний запит (про створення цього журналу) не включай. Якщо в якомусь запиті є паролі, токени чи ключі, заміни їх на [приховано] і скажи мені про це.
+   ```
